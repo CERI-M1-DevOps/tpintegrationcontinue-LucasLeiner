@@ -275,13 +275,16 @@ public class ListeSimpleTest {
     }
 
     @Test
-    public void echangerQuandR1EstTeteEtR2PasTete() {
-        listeATester.ajout(1); // `r1` est la tête
-        Noeud r1 = listeATester.tete;
+    public void echangerQuandR2EstTeteEtR1PasTete() {
         listeATester.ajout(2);
-        Noeud r2 = listeATester.tete; // `r2` est le deuxième élément ajouté, donc pas la tête
+        Noeud r1 = listeATester.tete;
+        listeATester.ajout(1);
+        Noeud r2 = listeATester.tete;
         listeATester.echanger(r1, r2);
-        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+
+        // Vérifie si l'ordre de la liste est correct après l'échange
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString(), "Erreur lors de l'échange de r2 (tête) avec r1");
     }
+
 
 }
