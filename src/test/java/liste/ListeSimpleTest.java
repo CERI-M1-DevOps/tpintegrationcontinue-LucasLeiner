@@ -274,4 +274,14 @@ public class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
 
+    @Test
+    public void echangerQuandR1EstTeteEtR2PasTete() {
+        listeATester.ajout(1); // `r1` est la tête
+        Noeud r1 = listeATester.tete;
+        listeATester.ajout(2);
+        Noeud r2 = listeATester.tete; // `r2` est le deuxième élément ajouté, donc pas la tête
+        listeATester.echanger(r1, r2);
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
 }
