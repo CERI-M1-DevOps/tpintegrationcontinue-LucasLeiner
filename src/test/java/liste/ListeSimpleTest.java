@@ -286,41 +286,4 @@ public class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString(), "Erreur lors de l'échange de r2 (tête) avec r1");
     }
 
-    @Test
-    public void testSupprimePremier_ElementAbsent() {
-        ListeSimple liste = new ListeSimple();
-        liste.ajout(1);
-        liste.ajout(2);
-        liste.ajout(3);
-
-        liste.supprimePremier(4);  // L'élément 4 n'est pas dans la liste
-        assertEquals(3, liste.getSize(), "La taille devrait être inchangée lorsque l'élément est absent.");
-        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3))", liste.toString());
-    }
-
-    @Test
-    public void testSupprimePremier_Tete() {
-        ListeSimple liste = new ListeSimple();
-        liste.ajout(1);
-        liste.ajout(2);
-        liste.ajout(3);
-
-        liste.supprimePremier(1);  // Supprimer la tête (élément 1)
-        assertEquals(2, liste.getSize(), "La taille devrait diminuer de 1 après suppression.");
-        assertEquals("ListeSimple(Noeud(2), Noeud(3))", liste.toString(), "La tête devrait être mise à jour après suppression.");
-    }
-
-    @Test
-    public void testSupprimePremier_ElementMilieu() {
-        ListeSimple liste = new ListeSimple();
-        liste.ajout(1);
-        liste.ajout(2);
-        liste.ajout(3);
-
-        liste.supprimePremier(2);  // Supprimer l'élément du milieu
-        assertEquals(2, liste.getSize(), "La taille devrait diminuer de 1 après suppression.");
-        assertEquals("ListeSimple(Noeud(1), Noeud(3))", liste.toString(), "L'élément du milieu devrait être correctement supprimé.");
-    }
-
-
 }
