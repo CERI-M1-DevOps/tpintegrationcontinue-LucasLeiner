@@ -3,6 +3,7 @@ name: Generate and Deploy Documentation
 on:
   pull_request:
     types: [closed]
+    branches: [main]
 
 jobs:
   generate-docs:
@@ -33,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.DOC_TOKEN }}
-          publish_dir: ./target/site/apidocs
+          publish_dir: ./target/report/apidocs
