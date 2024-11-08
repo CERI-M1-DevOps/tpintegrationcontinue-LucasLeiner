@@ -265,7 +265,7 @@ public class ListeSimpleTest {
     }
 
     @Test
-    public void echangerDeuxiemeArgumentEstTete() {
+    public void echangerDeuxiemeAEstTete() {
         listeATester.ajout(2);
         Noeud r1 = listeATester.tete;
         listeATester.ajout(1);
@@ -275,15 +275,74 @@ public class ListeSimpleTest {
     }
 
     @Test
-    public void echangerQuandR2EstTeteEtR1PasTete() {
+    public void echangerR2EstTeteEtR1PasTete() {
         listeATester.ajout(2);
         Noeud r1 = listeATester.tete;
         listeATester.ajout(1);
         Noeud r2 = listeATester.tete;
         listeATester.echanger(r1, r2);
 
-        // Vérifie si l'ordre de la liste est correct après l'échange
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString(), "Erreur lors de l'échange de r2 (tête) avec r1");
     }
 
+    @Test
+    void echangerDeuxMemeNoeuds() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        Noeud r1 = listeATester.tete;
+        Noeud r2 = listeATester.tete;
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        listeATester.echanger(r1, r2);
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void modifierTest1() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        listeATester.modifiePremier(2, 5);
+        assertEquals("ListeSimple(Noeud(3), Noeud(5), Noeud(1))", listeATester.toString());
+
+        listeATester.modifiePremier(10, 15);
+        assertEquals("ListeSimple(Noeud(3), Noeud(5), Noeud(1))", listeATester.toString());
+
+        listeATester.modifiePremier(3, 7);
+        assertEquals("ListeSimple(Noeud(7), Noeud(5), Noeud(1))", listeATester.toString());
+
+        ListeSimple listeSingle = new ListeSimple();
+        listeSingle.ajout(4);
+        listeSingle.modifiePremier(4, 8);
+        assertEquals("ListeSimple(Noeud(8))", listeSingle.toString());
+    }
+
+    @Test
+    void supprimeTest1() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        listeATester.supprimePremier(3);
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(2, listeATester.getSize());
+
+        listeATester.supprimePremier(2);
+        assertEquals("ListeSimple(Noeud(1))", listeATester.toString());
+        assertEquals(1, listeATester.getSize());
+
+        listeATester.ajout(4);
+        listeATester.supprimePremier(1);
+        assertEquals("ListeSimple(Noeud(4))", listeATester.toString());
+        assertEquals(1, listeATester.getSize());
+
+        listeATester.supprimePremier(10);
+        assertEquals("ListeSimple(Noeud(4))", listeATester.toString());
+        assertEquals(1, listeATester.getSize());
+
+        ListeSimple emptyListe = new ListeSimple();
+        emptyListe.supprimePremier(1);
+        assertNull(emptyListe.tete);
+    }
 }
