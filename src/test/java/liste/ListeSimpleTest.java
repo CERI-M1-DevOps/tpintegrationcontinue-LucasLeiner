@@ -345,5 +345,4 @@ public class ListeSimpleTest {
         emptyListe.supprimePremier(1);
         assertNull(emptyListe.tete);
     }
-
 }
