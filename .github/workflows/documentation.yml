@@ -3,7 +3,7 @@ name: Generate and Deploy Documentation
 on:
   pull_request:
     types: [closed]
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   generate-docs:
