@@ -361,5 +361,4 @@ class ListeSimpleTest {
 
         assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3))", listeATester.toString());
     }
-
 }
